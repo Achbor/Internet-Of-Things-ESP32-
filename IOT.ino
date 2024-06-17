@@ -4,11 +4,14 @@ All of which will be connected to one Blynk IOT cloud server/application*/
 
 //Author : Malago Achbor Joshua 
 
+//Setting up Blynk account's credentials
+// These can be found in Blynk Account's personal details 
 #define BLYNK_PRINT Serial
-#define BLYNK_TEMPLATE_ID "TMPL6lJvgs5Bs"
-#define BLYNK_TEMPLATE_NAME "Achy"
-#define BLYNK_AUTH_TOKEN "_wNjm9IAQn1iN6KgDX0HvB7UugyIhXeE"
+#define BLYNK_TEMPLATE_ID "Template ID"
+#define BLYNK_TEMPLATE_NAME "Template Name"
+#define BLYNK_AUTH_TOKEN "Authentication Token"
 
+//Libraries to be used
 #include"BlynkSimpleEsp32.h"
 #include"DHTesp.h"
 #include "WiFi.h"
@@ -18,7 +21,8 @@ All of which will be connected to one Blynk IOT cloud server/application*/
 #include <Adafruit_GFX.h>
 #include <Wire.h>
 
-#define Temperature V0
+//Setting up Blynks Virtual Pin COnstants
+#define Temperature V0      
 #define Humidity    V1
 #define Terminal    V2
 #define Slider      V3
@@ -32,17 +36,19 @@ All of which will be connected to one Blynk IOT cloud server/application*/
 #define Relay 25
 #define Alarm_switch 5
 
-
+//Initializing Class Objects
 DHTesp dht;
 Servo servo;
 Adafruit_SSD1306 oled(Screen_width, Screen_height, &Wire, Reset);
 BlynkTimer sensor_timer;
 WidgetTerminal terminal(V2);
 
-char wifi_id[]="OVEROBOT";
-char wifi_psswd[]="12345678";
-char token[]="_wNjm9IAQn1iN6KgDX0HvB7UugyIhXeE";
+//Setting up Wifi connection Parameters
+char wifi_id[]="Wifi Router SSID";
+char wifi_psswd[]="Wifi Password";
+char token[]="Blynk Account's Token string for connection access";
 
+//Setting up GLobal variables
 bool buzzer_state = true, buzzer=false;
 int  pos;                //servo motor's Angular position variable
 const int buzzer_pin =2;
